@@ -63,7 +63,7 @@ Based on sales data from an e‑commerce platform (orders, customers, products),
 
 ## Data Warehouse Architecture
 
-![Data Warehouse Architecture Diagram](/Workspace/images/etl_flow_2.png "Online Data Warehouse Architecture")
+![Data Warehouse Architecture Diagram](/images/etl_flow_2.png "Online Data Warehouse Architecture")
 
 > **Diagram Explanation**:  
 > 1. ODS layer: Upload raw CSV files (customers, products, orders) to an online Volume.  
@@ -96,7 +96,7 @@ Based on sales data from an e‑commerce platform (orders, customers, products),
 
 **Conclusion**: When designing a partition strategy, you must ensure that common query conditions directly use the partition key; otherwise, partitioning cannot improve performance.
 
-![Partition Query Performance Comparison](/Workspace/images/partition_performance_1.png "Query run results")
+![Partition Query Performance Comparison](/images/partition_performance_1.png "Query run results")
 
 ---
 
@@ -113,7 +113,7 @@ Based on sales data from an e‑commerce platform (orders, customers, products),
 | Before compaction | 3 | ~3 MB |
 | After compaction | 1 | ~3 MB (size unchanged) |
 
-![File Optimization Result](/Workspace/images/optimize_before_after.png "Code run result")
+![File Optimization Result](/images/optimize_before_after.png "Code run result")
 
 ---
 
@@ -132,7 +132,7 @@ Based on sales data from an e‑commerce platform (orders, customers, products),
 > Delta managed tables benefit from Unity Catalog’s metadata caching, file skipping optimizations, and better data layout.  
 > In production, Delta format is recommended for both ACID guarantees and performance gains.
 
-![Storage Format Performance Comparison](/Workspace/images/format_comparison_1.png "Performance report")
+![Storage Format Performance Comparison](/images/format_comparison_1.png "Performance report")
 
 ---
 
@@ -152,7 +152,7 @@ Based on sales data from an e‑commerce platform (orders, customers, products),
 
 **Conclusion**: With only 10 million rows, Spark AQE can handle the skew effectively; manual intervention does not bring noticeable benefits.
 
-![Skew Distribution](/Workspace/images/skew_distribution.png "Skew distribution (bar chart)")
+![Skew Distribution](/images/skew_distribution.png "Skew distribution (bar chart)")
 
 ---
 
@@ -170,8 +170,6 @@ Based on sales data from an e‑commerce platform (orders, customers, products),
     - First run `01_setup_and_optimization.ipynb` to create tables, partitions, and perform small file compaction.
     - Then run `02_advanced_tuning.ipynb` for advanced tuning (partition comparison, format conversion, skew handling).
 4. **Notebook Export**: Download the `.ipynb` files from the repository and import them into your Databricks workspace.
-
-Repository link: [GitHub placeholder](https://github.com/yourusername/retail-warehouse-tuning)
 
 ---
 
